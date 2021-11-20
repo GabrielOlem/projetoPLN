@@ -1,0 +1,163 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- flight+airfare:
+    use_entities: true
+- city:
+    use_entities: true
+- airline:
+    use_entities: true
+- ground_service:
+    use_entities: true
+- restriction:
+    use_entities: true
+- cheapest:
+    use_entities: true
+- airport:
+    use_entities: true
+- flight:
+    use_entities: true
+- abbreviation:
+    use_entities: true
+- meal:
+    use_entities: true
+- aircraft+flight+flight_no:
+    use_entities: true
+- flight_no:
+    use_entities: true
+- flight_time:
+    use_entities: true
+- quantity:
+    use_entities: true
+- ground_service+ground_fare:
+    use_entities: true
+- airfare:
+    use_entities: true
+- airline+flight_no:
+    use_entities: true
+- distance:
+    use_entities: true
+- airfare+flight_time:
+    use_entities: true
+- capacity:
+    use_entities: true
+- aircraft:
+    use_entities: true
+- ground_fare:
+    use_entities: true
+entities:
+- airline_name
+- restriction_code
+- flight_number
+- depart_time.time_relative
+- arrive_time.time_relative
+- toloc.airport_name
+- depart_time.end_time
+- state_code
+- arrive_time.start_time
+- toloc.airport_code
+- flight_mod
+- day_number
+- fromloc.state_name
+- return_date.today_relative
+- economy
+- fare_basis_code
+- depart_date.today_relative
+- arrive_time.end_time
+- airport_code
+- fromloc.airport_name
+- arrive_time.period_mod
+- return_date.date_relative
+- depart_date.year
+- or
+- depart_time.period_of_day
+- transport_type
+- arrive_date.day_name
+- day_name
+- time_relative
+- period_of_day
+- fare_amount
+- time
+- airline_code
+- month_name
+- toloc.country_name
+- return_time.period_mod
+- depart_date.date_relative
+- toloc.state_code
+- arrive_date.day_number
+- depart_date.day_number
+- cost_relative
+- depart_time.start_time
+- round_trip
+- mod
+- stoploc.airport_name
+- arrive_date.date_relative
+- fromloc.city_name
+- fromloc.state_code
+- fromloc.airport_code
+- days_code
+- depart_time.period_mod
+- airport_name
+- arrive_time.time
+- arrive_date.today_relative
+- depart_date.month_name
+- stoploc.city_name
+- aircraft_code
+- meal
+- meal_code
+- toloc.state_name
+- flight_days
+- meal_description
+- connect
+- city_name
+- stoploc.state_code
+- flight_time
+- state_name
+- return_date.day_number
+- depart_time.time
+- toloc.city_name
+- flight_stop
+- depart_date.day_name
+- class_type
+- return_date.month_name
+- arrive_time.period_of_day
+- today_relative
+- return_date.day_name
+- arrive_date.month_name
+- return_time.period_of_day
+slots: {}
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+actions: []
+forms: {}
+e2e_actions: []
