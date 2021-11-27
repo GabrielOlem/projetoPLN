@@ -159,7 +159,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_flight:
-  - text: You need wings to fly. Drink Redbull
+  - text: You need wings to fly. Drink Redbull {fromloc.city_name}
 actions: []
 forms: {}
 e2e_actions: []

@@ -11,3 +11,8 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+#- rule: Say redbull always
+#  steps:
+#  - intent: flight
+#  - action: utter_flight

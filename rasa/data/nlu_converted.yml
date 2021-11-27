@@ -1,5 +1,33 @@
 version: "2.0"
 nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
 - intent: flight_time
   examples: |
     - what is the arrival time in [san francisco](fromloc.city_name) for the [755 am](depart_time.time) flight leaving [washington](fromloc.city_name)
@@ -1869,6 +1897,8 @@ nlu:
     - i 'd like to fly from [philadelphia](fromloc.city_name) to [san francisco](toloc.city_name) with a stopover in [dallas](stoploc.city_name)
     - please list all flights from [san francisco](fromloc.city_name) to [pittsburgh](toloc.city_name) on sunday
     - do you have any flights from [denver](fromloc.city_name) to [baltimore](toloc.city_name) via [dallas](stoploc.city_name)
+    - i would like to fly
+    - i would like to fly from [chicago](fromloc.city_name)
 - intent: aircraft
   examples: |
     - what kind of aircraft is used on a flight from [cleveland](fromloc.city_name) to [dallas](toloc.city_name)
