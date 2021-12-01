@@ -1,10 +1,38 @@
 version: "2.0"
 stories:
-- story: traveling
+- story: traveling_affirm # Usuario passa cidade destino, bot confirma e pede cidade fonte
   steps:
   - intent: greet
   - action: utter_greet
   - intent: flight
     entities:
-      - fromloc.city_name: "chicago"
-  - action: utter_flight
+      - fromloc.city_name
+  - action: utter_confirm_from
+  - action: action_listen
+  - intent: affirm
+  - action: utter_ask_dest
+  - intent: flight
+    entities:
+      - or:
+        - toloc.city_name
+        - city_name
+
+- story: traveling_deny # Usuario passa cidade destino, bot confirma, pessoa nega, bot pede novamente e pede cidade destino
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: flight
+    entities:
+      - fromloc.city_name
+  - action: utter_confirm_from
+  - action: action_listen
+  - intent: deny
+  - action: utter_reask
+  - intent: flight
+    entities:
+      - fromloc.city_name
+  - action: utter_confirm_from
+  - action: utter_ask_dest
+  - intent: flight
+    entities:
+      - toloc.city_name

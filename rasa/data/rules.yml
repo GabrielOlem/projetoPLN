@@ -7,12 +7,7 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Greet everytime the user greets
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
-#- rule: Say redbull always
-#  steps:
-#  - intent: flight
-#  - action: utter_flight
+  - intent: greet
+  - action: utter_greet

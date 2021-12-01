@@ -1,5 +1,22 @@
 version: "2.0"
 nlu:
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
 - intent: greet
   examples: |
     - hey
@@ -15,6 +32,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - i am good
 - intent: goodbye
   examples: |
     - good afternoon
@@ -82,6 +100,7 @@ nlu:
     - what time is the [last](flight_mod) flight from [washington](fromloc.city_name) to [san francisco](toloc.city_name)
     - all right give me the flight times in the [morning](depart_time.period_of_day) on [september](depart_date.month_name) [twentieth](depart_date.day_number) from [pittsburgh](fromloc.city_name) to [san francisco](toloc.city_name)
     - can you tell me the time a flight would leave from [atlanta](fromloc.city_name) to [boston](toloc.city_name) in the afternoon
+    - show me the schedule for airlines leaving [chicago](city_name)
 - intent: airfare
   examples: |
     - [cheapest](cost_relative) airfare from [tacoma](fromloc.city_name) to [orlando](toloc.city_name)
@@ -1899,6 +1918,17 @@ nlu:
     - do you have any flights from [denver](fromloc.city_name) to [baltimore](toloc.city_name) via [dallas](stoploc.city_name)
     - i would like to fly
     - i would like to fly from [chicago](fromloc.city_name)
+    - i would like to go to [orlando](toloc.city_name)
+    - i would like to go to [chicago](toloc.city_name)
+    - i would like to travel from [chicago](fromloc.city_name)
+    - i would like to fly to [chicago](toloc.city_name)
+    - i would like to travel to [chicago](toloc.city_name) from [orlando](fromloc.city_name)
+    - i would like to travel from [chicago](fromloc.city_name) to [orlando](toloc.city_name)
+    - i would like to travel from [orlando](fromloc.city_name) to [chicago](toloc.city_name)
+    - i want to fly
+    - i want to flight
+    - i want to fly to [chicago](toloc.city_name)
+    - i want to fly from [chicago](fromloc.city_name)
 - intent: aircraft
   examples: |
     - what kind of aircraft is used on a flight from [cleveland](fromloc.city_name) to [dallas](toloc.city_name)

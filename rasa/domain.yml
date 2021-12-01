@@ -13,12 +13,6 @@ intents:
     use_entities: true
 - deny:
     use_entities: true
-- mood_great:
-    use_entities: true
-- mood_unhappy:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
 - flight+airfare:
     use_entities: true
 - city:
@@ -65,85 +59,166 @@ intents:
     use_entities: true
 entities:
 - airline_name
-- restriction_code
 - flight_number
 - depart_time.time_relative
 - arrive_time.time_relative
-- toloc.airport_name
 - depart_time.end_time
-- state_code
-- arrive_time.start_time
-- toloc.airport_code
 - flight_mod
-- day_number
-- fromloc.state_name
-- return_date.today_relative
-- economy
 - fare_basis_code
 - depart_date.today_relative
 - arrive_time.end_time
-- airport_code
 - fromloc.airport_name
-- arrive_time.period_mod
-- return_date.date_relative
-- depart_date.year
 - or
 - depart_time.period_of_day
-- transport_type
 - arrive_date.day_name
 - day_name
 - time_relative
-- period_of_day
 - fare_amount
-- time
 - airline_code
-- month_name
-- toloc.country_name
-- return_time.period_mod
 - depart_date.date_relative
 - toloc.state_code
-- arrive_date.day_number
 - depart_date.day_number
 - cost_relative
-- depart_time.start_time
 - round_trip
-- mod
-- stoploc.airport_name
-- arrive_date.date_relative
 - fromloc.city_name
 - fromloc.state_code
-- fromloc.airport_code
-- days_code
-- depart_time.period_mod
 - airport_name
 - arrive_time.time
-- arrive_date.today_relative
 - depart_date.month_name
 - stoploc.city_name
 - aircraft_code
 - meal
-- meal_code
-- toloc.state_name
-- flight_days
 - meal_description
 - connect
 - city_name
-- stoploc.state_code
-- flight_time
-- state_name
-- return_date.day_number
 - depart_time.time
 - toloc.city_name
 - flight_stop
 - depart_date.day_name
 - class_type
-- return_date.month_name
-- arrive_time.period_of_day
 - today_relative
-- return_date.day_name
 - arrive_date.month_name
-- return_time.period_of_day
-slots: {}
+slots: 
+    airline_name:
+        type: text
+        influence_conversation: false
+    flight_number:
+        type: text
+        influence_conversation: false
+    depart_time.time_relative:
+        type: text
+        influence_conversation: false
+    arrive_time.time_relative:
+        type: text
+        influence_conversation: false
+    depart_time.end_time:
+        type: text
+        influence_conversation: false
+    flight_mod:
+        type: text
+        influence_conversation: false
+    fare_basis_code:
+        type: text
+        influence_conversation: false
+    depart_date.today_relative:
+        type: text
+        influence_conversation: false
+    arrive_time.end_time:
+        type: text
+        influence_conversation: false
+    fromloc.airport_name:
+        type: text
+        influence_conversation: false
+    or:
+        type: text
+        influence_conversation: false
+    depart_time.period_of_day:
+        type: text
+        influence_conversation: false
+    arrive_date.day_name:
+        type: text
+        influence_conversation: false
+    day_name:
+        type: text
+        influence_conversation: false
+    time_relative:
+        type: text
+        influence_conversation: false
+    fare_amount:
+        type: text
+        influence_conversation: false
+    airline_code:
+        type: text
+        influence_conversation: false
+    depart_date.date_relative:
+        type: text
+        influence_conversation: false
+    toloc.state_code:
+        type: text
+        influence_conversation: false
+    depart_date.day_number:
+        type: text
+        influence_conversation: false
+    cost_relative:
+        type: text
+        influence_conversation: false
+    round_trip:
+        type: text
+        influence_conversation: false
+    fromloc.city_name:
+        type: text
+        influence_conversation: false
+    fromloc.state_code:
+        type: text
+        influence_conversation: false
+    airport_name:
+        type: text
+        influence_conversation: false
+    arrive_time.time:
+        type: text
+        influence_conversation: false
+    depart_date.month_name:
+        type: text
+        influence_conversation: false
+    stoploc.city_name:
+        type: text
+        influence_conversation: false
+    aircraft_code:
+        type: text
+        influence_conversation: false
+    meal:
+        type: text
+        influence_conversation: false
+    meal_description:
+        type: text
+        influence_conversation: false
+    connect:
+        type: text
+        influence_conversation: false
+    city_name:
+        type: text
+        influence_conversation: false
+    depart_time.time:
+        type: text
+        influence_conversation: false
+    toloc.city_name:
+        type: text
+        influence_conversation: false
+    flight_stop:
+        type: text
+        influence_conversation: false
+    depart_date.day_name:
+        type: text
+        influence_conversation: false
+    class_type:
+        type: text
+        influence_conversation: false
+    today_relative:
+        type: text
+        influence_conversation: false
+    arrive_date.month_name:
+        type: text
+        influence_conversation: false
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -158,8 +233,25 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_flight:
-  - text: You need wings to fly. Drink Redbull {fromloc.city_name}
+  utter_flight_to:
+  - text: All alright. We will look into your flight to {toloc.city_name}. 
+  utter_flight_from:
+  - text: All alright. We will look into your flight from {fromloc.city_name}.
+  utter_date_to:
+  - text: When do you want your flight to {toloc.city_name} to be?
+  - text: When are you flying to {toloc.city_name}?
+  utter_ask_dest:
+  - text: Where are you going?
+  - text: Where are you traveling to?
+  - text: What is your destination?
+  utter_ask_source:
+  - text: Where are you traveling from?
+  - text: Where are you coming from?
+  - text: Where is your origin city?
+  utter_confirm_from:
+  - text: Great, you are coming from {fromloc.city_name}?
+  utter_reask:
+  - text: Tell me what is the right city then.
 actions: []
 forms: {}
 e2e_actions: []
