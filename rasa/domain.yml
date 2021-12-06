@@ -98,127 +98,207 @@ entities:
 - class_type
 - today_relative
 - arrive_date.month_name
-slots: 
-    airline_name:
-        type: text
-        influence_conversation: false
-    flight_number:
-        type: text
-        influence_conversation: false
-    depart_time.time_relative:
-        type: text
-        influence_conversation: false
-    arrive_time.time_relative:
-        type: text
-        influence_conversation: false
-    depart_time.end_time:
-        type: text
-        influence_conversation: false
-    flight_mod:
-        type: text
-        influence_conversation: false
-    fare_basis_code:
-        type: text
-        influence_conversation: false
-    depart_date.today_relative:
-        type: text
-        influence_conversation: false
-    arrive_time.end_time:
-        type: text
-        influence_conversation: false
-    fromloc.airport_name:
-        type: text
-        influence_conversation: false
-    or:
-        type: text
-        influence_conversation: false
-    depart_time.period_of_day:
-        type: text
-        influence_conversation: false
-    arrive_date.day_name:
-        type: text
-        influence_conversation: false
-    day_name:
-        type: text
-        influence_conversation: false
-    time_relative:
-        type: text
-        influence_conversation: false
-    fare_amount:
-        type: text
-        influence_conversation: false
-    airline_code:
-        type: text
-        influence_conversation: false
-    depart_date.date_relative:
-        type: text
-        influence_conversation: false
-    toloc.state_code:
-        type: text
-        influence_conversation: false
-    depart_date.day_number:
-        type: text
-        influence_conversation: false
-    cost_relative:
-        type: text
-        influence_conversation: false
-    round_trip:
-        type: text
-        influence_conversation: false
-    fromloc.city_name:
-        type: text
-        influence_conversation: false
-    fromloc.state_code:
-        type: text
-        influence_conversation: false
-    airport_name:
-        type: text
-        influence_conversation: false
-    arrive_time.time:
-        type: text
-        influence_conversation: false
-    depart_date.month_name:
-        type: text
-        influence_conversation: false
-    stoploc.city_name:
-        type: text
-        influence_conversation: false
-    aircraft_code:
-        type: text
-        influence_conversation: false
-    meal:
-        type: text
-        influence_conversation: false
-    meal_description:
-        type: text
-        influence_conversation: false
-    connect:
-        type: text
-        influence_conversation: false
-    city_name:
-        type: text
-        influence_conversation: false
-    depart_time.time:
-        type: text
-        influence_conversation: false
-    toloc.city_name:
-        type: text
-        influence_conversation: false
-    flight_stop:
-        type: text
-        influence_conversation: false
-    depart_date.day_name:
-        type: text
-        influence_conversation: false
-    class_type:
-        type: text
-        influence_conversation: false
-    today_relative:
-        type: text
-        influence_conversation: false
-    arrive_date.month_name:
-        type: text
-        influence_conversation: false
+slots:
+  airline_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  flight_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_time.time_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  arrive_time.time_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_time.end_time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  flight_mod:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  fare_basis_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_date.today_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  arrive_time.end_time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  fromloc.airport_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  or:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_time.period_of_day:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  arrive_date.day_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  day_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  time_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  fare_amount:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  airline_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_date.date_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  toloc.state_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_date.day_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  cost_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  round_trip:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  fromloc.city_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  fromloc.state_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  airport_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  arrive_time.time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_date.month_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  stoploc.city_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  aircraft_code:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  meal:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  meal_description:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  connect:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  city_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_time.time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  toloc.city_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  flight_stop:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  depart_date.day_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  class_type:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  today_relative:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  arrive_date.month_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -234,7 +314,7 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_flight_to:
-  - text: All alright. We will look into your flight to {toloc.city_name}. 
+  - text: All alright. We will look into your flight to {toloc.city_name}.
   utter_flight_from:
   - text: All alright. We will look into your flight from {fromloc.city_name}.
   utter_date_to:
@@ -252,6 +332,7 @@ responses:
   - text: Great, you are coming from {fromloc.city_name}?
   utter_reask:
   - text: Tell me what is the right city then.
-actions: []
+actions:
+- action_api_test
 forms: {}
 e2e_actions: []

@@ -45,8 +45,25 @@ class ActionAPITest(Action):
         }
 
         params = (
-            ('originLocationCode', 'REC'),
-            ('destinationLocationCode', 'GRU'),
+            ('subType', 'CITY'),
+            ('keyword', str(tracker.get_slot('fromloc.city_name'))),
+        )
+        response2 = requests.get('https://test.api.amadeus.com/v1/reference-data/locations', headers=headers, params=params)
+
+        fromCity = json.loads(response2.text)['data'][0]['iataCode']
+
+        params = (
+            ('subType', 'CITY'),
+            ('keyword', str(tracker.get_slot('toloc.city_name'))),
+        )
+
+        response2 = requests.get('https://test.api.amadeus.com/v1/reference-data/locations', headers=headers, params=params)
+
+        toCity = json.loads(response2.text)['data'][0]['iataCode']
+
+        params = (
+            ('originLocationCode', str(fromCity)),
+            ('destinationLocationCode', str(toCity)),
             ('departureDate', '2021-12-15'),
             ('adults', 1),
         )
@@ -55,8 +72,6 @@ class ActionAPITest(Action):
 
         dicti2 = json.loads(response2.text)
 
-        pprint.pprint(dicti2['data'][0])
         dispatcher.utter_message(text='You can go for '+str(dicti2['data'][0]['price']['total']))
-        print(dicti2['data'])
 
         return []

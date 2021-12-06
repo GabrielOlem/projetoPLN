@@ -36,3 +36,13 @@ stories:
   - intent: flight
     entities:
       - toloc.city_name
+
+- story: traveling_api
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: flight
+      entities:
+        - fromloc.city_name
+        - toloc.city_name
+    - action: action_api_test
