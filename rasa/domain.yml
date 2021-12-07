@@ -332,7 +332,23 @@ responses:
   - text: Great, you are coming from {fromloc.city_name}?
   utter_reask:
   - text: Tell me what is the right city then.
+  utter_ask_flight_form_fromloc.city_name:
+  - text: Where are you traveling from?
+  - text: Where are you coming from?
+  - text: Where is your origin city?
+  utter_ask_flight_form_toloc.city_name:
+  - text: Where are you going?
+  - text: Where are you traveling to?
+  - text: What is your destination?
 actions:
 - action_api_test
-forms: {}
+forms:
+  flight_form:
+    required_slots:
+      fromloc.city_name:
+      - entity: fromloc.city_name
+        type: from_entity
+      toloc.city_name:
+      - entity: toloc.city_name
+        type: from_entity
 e2e_actions: []

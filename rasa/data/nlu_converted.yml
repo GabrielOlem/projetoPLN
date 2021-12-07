@@ -1932,6 +1932,12 @@ nlu:
     - i would like to fly from [chicago](fromloc.city_name) to [orlando](toloc.city_name)
     - i would like to travel from [chigago](fromloc.city_name) to [orlando](toloc.city_name) on [fifteenth](depart_date.day_number) of [december](depart_date.month_name)
     - i would like to travel from [dallas](fromloc.city_name) to [chicago](toloc.city_name)
+    - i am going to [orlando](toloc.city_name)
+    - i am traveling to [new york](toloc.city_name)
+    - i am coming from [orlando](fromloc.city_name)
+    - i would like to travel from [new york](fromloc.city_name) to [los angeles](toloc.city_name)
+    - my destination is [orlando](fromloc.city_name)
+    - i am going to [new york](fromloc.city_name)
 - intent: aircraft
   examples: |
     - what kind of aircraft is used on a flight from [cleveland](fromloc.city_name) to [dallas](toloc.city_name)
