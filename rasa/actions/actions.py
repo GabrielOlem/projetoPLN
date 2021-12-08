@@ -25,31 +25,59 @@ respostas = {
     'american_airlines': ['tuna sandwich', 'nuts', 'juice', 'wine', 'lasagna', 'sandwich']
     },
     'restriction':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'pittsburgh+atlanta':['mask','vaccination certificate','negative Covid 19 test'],
+    'boston+oakland':['mask','negative Covid 19 test'],
+    'atlanta+washington':['mask','vaccination certificate'],
+    'boston+denver':['mask','negative Covid 19 test']
     },
     'capacity':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'100':['256','512'],
+    '72s':['1024','2048'],
+    'american_airlines':['320','640','960'],
+    'united_airlines':['120','240','500','720'] 
     },
     'quantity':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'boston+atlanta':['15','3'], #com paradas, direto
+    'san_francisco+denver':['10','5'],
+    'atlanta+washington':['3','1'],
+    'boston+denver':['15','0']
     },
     'ground_fare':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'pittsburgh':['300','40'],                 #limo, carro normal
+    'tacoma':['450','35'],
+    'atlanta_airport':['399','50'],
+    'philadelphia_international_airport':['500','100']
     },
     'distance':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'los_angeles+boston':['2590'],               # in miles
+    'pittsburgh+san_francisco':['2260'],
+    'boston+denver':['1765'],
+    'atlanta+washington':['542']
     },
     'airline':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'los_angeles+boston':['American airlines','United airlines','Delta'],               # in miles
+    'pittsburgh+san_francisco':['Delta','United airlines'],
+    'boston+denver':['American airlines'],
+    'atlanta+washington':['Delta']
     },
     'airport':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {
+    'orlando':['Orlando International Airport'],
+    'new_york':['New York JFK International Airport','New York La Guardia Airport','Syracuse - Hancock Intl. Airport'],
+    'denver':['Denver International Airport','Rocky Mountain Metropolitan Airport','Boulder Municipal Airport'],
+    'boston':['Worcester Regional Airport','Logan International Airport','Manchester-Boston Regional Airport','T. F. Green Airport']
     },
     'ground_service':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'denver':['Uber','taxi','bus'],
+    'atlanta':['Uber','bus'],
+    'baltimore':['Uber','taxi'],
+    'san_diego_airport':['bus']
     },
     'aircraft':
-    {'airline':'aiai', 'fromloctoloc':'aiai2'
+    {'cleveland+dallas':['Turboprop Aircraft','Piston Aircraft','Jets','Mid-Size Jets'],
+    'pittsburgh+baltimore':['Mid-Size Jets','Regional Jets','Narrow Body Aircraft'],
+    'atlanta+boston':['Wide Body Airliners','Commuter liners'],
+    'boston+san_francisco':['Airbus','Concorde','Military Aircraft','Multi-role Combat']
     },
 }
 class ActionAPITest(Action):
