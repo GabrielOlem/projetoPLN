@@ -340,8 +340,14 @@ responses:
   - text: Where are you going?
   - text: Where are you traveling to?
   - text: What is your destination?
+  utter_ask_flight_depart_date.day_number:
+  - text: When are you flying?
+  - text: What is your departure day?
+  utter_ask_flight_depart_date.month_name:
+  - text: What is your depart month?
 actions:
 - action_api_test
+- action_qa
 forms:
   flight_form:
     required_slots:
@@ -351,4 +357,11 @@ forms:
       toloc.city_name:
       - entity: toloc.city_name
         type: from_entity
+      depart_date.day_number:
+      - entity: depart_date.day_number
+        type: from_entity
+      depart_date.month_name:
+      - entity: depart_date.month_name
+        type: from_entity
+    
 e2e_actions: []

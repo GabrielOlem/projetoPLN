@@ -1,5 +1,11 @@
 version: "2.0"
 nlu:
+
+- intent: informDate
+  examples: |
+    - [march 25](date)
+    - [25/03](date)
+
 - intent: affirm
   examples: |
     - yes

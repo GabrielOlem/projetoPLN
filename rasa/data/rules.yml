@@ -12,10 +12,10 @@ rules:
   - intent: greet
   - action: utter_greet
 
-- rule: submit form
-  condition:
-  - active_loop: flight_form
-  steps:
-  - action: flight_form
-  - active_loop: null
-  - action: action_api_test
+# - rule: submit form
+#   condition:
+#   - active_loop: flight_form
+#   steps:
+#   - action: flight_form
+#   - active_loop: null
+#   - action: action_api_test

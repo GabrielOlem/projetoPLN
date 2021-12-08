@@ -6,24 +6,37 @@ stories:
   - action: utter_greet
   - checkpoint: check_greet
 
+- story: mealComAirline
+  steps:
+  - intent: meal
+    entities:
+      - airline_name
+      - meal
+  - action: action_qa
+
+- story: mealComCidades
+  steps:
+  - intent: meal
+    entities:
+      - fromloc.city_name
+      - toloc.city_name
+      - meal
+  - action: action_qa
+
 - story: teste
   steps:
-  - or:
-    - intent: flight
-    - intent: airfare
+  - intent: flight
   - action: flight_form
   - active_loop: flight_form
-  - action: utter_iamabot
+  - active_loop: null
+  - action: utter_greet
+
 - story: fromLocGiven # Usuario passa cidade destino, bot confirma e pede cidade fonte
   steps:
   - checkpoint: check_greet
-  - or:
-    - intent: flight
-      entities:
-        - fromloc.city_name
-    - intent: airfare
-      entities:
-        - fromloc.city_name
+  - intent: flight
+    entities:
+      - fromloc.city_name
   - action: utter_confirm_from
   - checkpoint: check_source
 
@@ -32,13 +45,9 @@ stories:
   - checkpoint: check_source
   - intent: affirm
   - action: utter_ask_dest
-  - or:
-    - intent: flight
-      entities:
-        - toloc.city_name
-    - intent: airfare
-      entities:
-        - toloc.city_name
+  - intent: flight
+    entities:
+      - toloc.city_name
   - action: action_api_test
   - checkpoint: check_flow_finished
 
@@ -47,41 +56,28 @@ stories:
   - checkpoint: check_source
   - intent: deny
   - action: utter_reask
-  - or:
-    - intent: flight
-      entities:
-        - fromloc.city_name
-    - intent: airfare
-      entities:
-        - fromloc.city_name
+  - intent: flight
+    entities:
+      - fromloc.city_name
   - action: utter_ask_dest
-  - or:
-    - intent: flight
-      entities:
-        - toloc.city_name
-    - intent: airfare
-      entities:
-        - toloc.city_name
+  - intent: flight
+    entities:
+      - toloc.city_name
   - action: action_api_test
   - checkpoint: check_flow_finished
 
 - story: finish flow
   steps:
-    - checkpoint: check_flow_finished
-    - intent: goodbye
-    - action: utter_goodbye
+  - checkpoint: check_flow_finished
+  - intent: goodbye
+  - action: utter_goodbye
 
 - story: traveling_api
   steps:
-    - intent: greet
-    - action: utter_greet
-    - or:
-    - intent: flight
-      entities:
-        - fromloc.city_name
-        - toloc.city_name
-    - intent: airfare
-      entities:
-        - fromloc.city_name
-        - toloc.city_name
-    - action: action_api_test
+  - intent: greet
+  - action: utter_greet
+  - intent: flight
+    entities:
+      - fromloc.city_name
+      - toloc.city_name
+  - action: action_api_test
