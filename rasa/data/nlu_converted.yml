@@ -1,11 +1,9 @@
 version: "2.0"
 nlu:
-
 - intent: informDate
   examples: |
     - [march 25](date)
     - [25/03](date)
-
 - intent: affirm
   examples: |
     - yes
@@ -1944,6 +1942,7 @@ nlu:
     - i would like to travel from [new york](fromloc.city_name) to [los angeles](toloc.city_name)
     - my destination is [orlando](fromloc.city_name)
     - i am going to [new york](fromloc.city_name)
+    - i want to fly from [chicago](fromloc.city_name) to [orlando](toloc.city_name) on [december](depart_date.month_name) [twenty seventh](depart_date.day_number)
 - intent: aircraft
   examples: |
     - what kind of aircraft is used on a flight from [cleveland](fromloc.city_name) to [dallas](toloc.city_name)
@@ -2707,6 +2706,7 @@ nlu:
     - what are my [meal](meal) options from [boston](fromloc.city_name) to [denver](toloc.city_name)
     - do i get a [meal](meal) on the [atlanta](fromloc.city_name) to bwi flight [eastern](airline_name) 210
     - what types of [meals](meal) are available
+    - show me all [meals](meal) on [american airlines](airline_name)
 - intent: restriction
   examples: |
     - what are the air restrictions on flights from [pittsburgh](fromloc.city_name) to [atlanta](toloc.city_name) for the airfare of [416 dollars](fare_amount)

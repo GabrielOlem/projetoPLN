@@ -57,6 +57,8 @@ intents:
     use_entities: true
 - ground_fare:
     use_entities: true
+- informDate:
+    use_entities: true
 entities:
 - airline_name
 - flight_number
@@ -98,6 +100,7 @@ entities:
 - class_type
 - today_relative
 - arrive_date.month_name
+- date
 slots:
   airline_name:
     type: rasa.shared.core.slots.TextSlot
@@ -351,17 +354,16 @@ actions:
 forms:
   flight_form:
     required_slots:
-      fromloc.city_name:
-      - entity: fromloc.city_name
-        type: from_entity
-      toloc.city_name:
-      - entity: toloc.city_name
-        type: from_entity
       depart_date.day_number:
       - entity: depart_date.day_number
         type: from_entity
       depart_date.month_name:
       - entity: depart_date.month_name
         type: from_entity
-    
+      fromloc.city_name:
+      - entity: fromloc.city_name
+        type: from_entity
+      toloc.city_name:
+      - entity: toloc.city_name
+        type: from_entity
 e2e_actions: []

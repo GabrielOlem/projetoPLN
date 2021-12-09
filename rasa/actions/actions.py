@@ -134,6 +134,7 @@ class ActionAPITest(Action):
 
         dicti2 = json.loads(response2.text)
 
+        print(str(dicti2['data'][0]['price']['total']))
         dispatcher.utter_message(text='You can go for '+str(dicti2['data'][0]['price']['total']))
 
         return []
@@ -160,8 +161,9 @@ class ActionQA(Action):
             if airline != None:
                 meals =''
                 # we have the options {meal} for ...
-                if airline.replace(' ', '_') in resposta[intent].keys():
-                    meals_vec = resposta[intent][airline]
+                newA = airline.replace(' ', '_')
+                if newA in resposta[intent].keys():
+                    meals_vec = resposta[intent][newA]
                     if len(meals_vec) == 1: 
                         message = f"We have the option of {meals_vec[0]} for the airline {airline.upper()}"
                     else:

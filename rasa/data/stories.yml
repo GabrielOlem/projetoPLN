@@ -5,24 +5,21 @@ stories:
   - intent: greet
   - action: utter_greet
   - checkpoint: check_greet
-
 - story: mealComAirline
   steps:
   - intent: meal
     entities:
-      - airline_name
-      - meal
+    - airline_name: ''
+    - meal: ''
   - action: action_qa
-
 - story: mealComCidades
   steps:
   - intent: meal
     entities:
-      - fromloc.city_name
-      - toloc.city_name
-      - meal
+    - fromloc.city_name: ''
+    - toloc.city_name: ''
+    - meal: ''
   - action: action_qa
-
 - story: teste
   steps:
   - intent: flight
@@ -30,16 +27,15 @@ stories:
   - active_loop: flight_form
   - active_loop: null
   - action: utter_greet
-
-- story: fromLocGiven # Usuario passa cidade destino, bot confirma e pede cidade fonte
+  - action: action_api_test
+- story: fromLocGiven
   steps:
   - checkpoint: check_greet
   - intent: flight
     entities:
-      - fromloc.city_name
+    - fromloc.city_name: ''
   - action: utter_confirm_from
   - checkpoint: check_source
-
 - story: affirmativePlace
   steps:
   - checkpoint: check_source
@@ -47,37 +43,34 @@ stories:
   - action: utter_ask_dest
   - intent: flight
     entities:
-      - toloc.city_name
+    - toloc.city_name: ''
   - action: action_api_test
   - checkpoint: check_flow_finished
-
-- story: traveling_deny # Usuario passa cidade destino, bot confirma, pessoa nega, bot pede novamente e pede cidade destino
+- story: traveling_deny
   steps:
   - checkpoint: check_source
   - intent: deny
   - action: utter_reask
   - intent: flight
     entities:
-      - fromloc.city_name
+    - fromloc.city_name: ''
   - action: utter_ask_dest
   - intent: flight
     entities:
-      - toloc.city_name
+    - toloc.city_name: ''
   - action: action_api_test
   - checkpoint: check_flow_finished
-
 - story: finish flow
   steps:
   - checkpoint: check_flow_finished
   - intent: goodbye
   - action: utter_goodbye
-
 - story: traveling_api
   steps:
   - intent: greet
   - action: utter_greet
   - intent: flight
     entities:
-      - fromloc.city_name
-      - toloc.city_name
+    - fromloc.city_name: ''
+    - toloc.city_name: ''
   - action: action_api_test
