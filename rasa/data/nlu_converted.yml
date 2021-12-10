@@ -1943,6 +1943,7 @@ nlu:
     - my destination is [orlando](fromloc.city_name)
     - i am going to [new york](fromloc.city_name)
     - i want to fly from [chicago](fromloc.city_name) to [orlando](toloc.city_name) on [december](depart_date.month_name) [twenty seventh](depart_date.day_number)
+    - i am traveling on [twentieth](depart_date.day_number)
 - intent: aircraft
   examples: |
     - what kind of aircraft is used on a flight from [cleveland](fromloc.city_name) to [dallas](toloc.city_name)
@@ -2023,6 +2024,7 @@ nlu:
     - what aircraft has the largest seating capacity
     - can you please tell me the type of aircraft used flying from [atlanta](fromloc.city_name) to [denver](toloc.city_name) on [eastern](airline_name) flight 825 leaving at [555](depart_time.time)
     - what type of aircraft are used on flights from [cleveland](fromloc.city_name) to [dallas](toloc.city_name) that leave before [noon](depart_time.time)
+    - what aircraft is used between [atlanta](fromloc.city_name) and [boston](toloc.city_name)
 - intent: ground_service
   examples: |
     - what kind of ground transportation is available in [denver](city_name)
@@ -2260,6 +2262,7 @@ nlu:
     - what ground transportation is available from the [pittsburgh airport](fromloc.airport_name)
     - what ground transportation is available from the [denver airport](fromloc.airport_name) to downtown [denver](toloc.city_name)
     - what is the ground transportation available in the city of [fort worth](city_name)
+    - what ground transport is available on [denver](city_name)
 - intent: airport
   examples: |
     - what 's the airport at [orlando](city_name)
@@ -2280,6 +2283,7 @@ nlu:
     - names of airports
     - what airport in [new york](fromloc.city_name) is closest to downtown
     - show me airports in [washington](city_name) dc
+    - what are the airport on [new york](city_name)
 - intent: airline
   examples: |
     - which airline serves [denver](fromloc.city_name) [pittsburgh](fromloc.city_name) and [atlanta](fromloc.city_name)

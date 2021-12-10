@@ -1,10 +1,21 @@
 version: "2.0"
 stories:
-- story: greeting
+
+- story: principalVoo
   steps:
-  - intent: greet
-  - action: utter_greet
-  - checkpoint: check_greet
+  - intent: flight
+  - action: flight_form
+  - active_loop: flight_form
+  - active_loop: null
+  - action: action_api_test
+  - checkpoint: check_flow_finished
+
+- story: finish flow
+  steps:
+  - checkpoint: check_flow_finished
+  - intent: goodbye
+  - action: utter_goodbye
+
 - story: mealComAirline
   steps:
   - intent: meal
@@ -12,6 +23,7 @@ stories:
     - airline_name: ''
     - meal: ''
   - action: action_qa
+
 - story: mealComCidades
   steps:
   - intent: meal
@@ -20,57 +32,94 @@ stories:
     - toloc.city_name: ''
     - meal: ''
   - action: action_qa
-- story: teste
+
+- story: restriction
   steps:
-  - intent: flight
-  - action: flight_form
-  - active_loop: flight_form
-  - active_loop: null
-  - action: utter_greet
-  - action: action_api_test
-- story: fromLocGiven
-  steps:
-  - checkpoint: check_greet
-  - intent: flight
-    entities:
-    - fromloc.city_name: ''
-  - action: utter_confirm_from
-  - checkpoint: check_source
-- story: affirmativePlace
-  steps:
-  - checkpoint: check_source
-  - intent: affirm
-  - action: utter_ask_dest
-  - intent: flight
-    entities:
-    - toloc.city_name: ''
-  - action: action_api_test
-  - checkpoint: check_flow_finished
-- story: traveling_deny
-  steps:
-  - checkpoint: check_source
-  - intent: deny
-  - action: utter_reask
-  - intent: flight
-    entities:
-    - fromloc.city_name: ''
-  - action: utter_ask_dest
-  - intent: flight
-    entities:
-    - toloc.city_name: ''
-  - action: action_api_test
-  - checkpoint: check_flow_finished
-- story: finish flow
-  steps:
-  - checkpoint: check_flow_finished
-  - intent: goodbye
-  - action: utter_goodbye
-- story: traveling_api
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: flight
+  - intent: restriction
     entities:
     - fromloc.city_name: ''
     - toloc.city_name: ''
-  - action: action_api_test
+  - action: action_qa
+
+- story: capacityComAirline
+  steps:
+  - intent: capacity
+    entities:
+    - airline_name: ''
+  - action: action_qa
+
+- story: capacityComAirlineCode
+  steps:
+  - intent: capacity
+    entities:
+    - airline_code: ''
+  - action: action_qa
+
+- story: quantity
+  steps:
+  - intent: quantity
+    entities:
+    - fromloc.city_name: ''
+    - toloc.city_name: ''
+  - action: action_qa
+
+- story: ground_fareComAirportName
+  steps:
+  - intent: ground_fare
+    entities:
+    - fromloc.airport_name: ''
+  - action: action_qa
+
+- story: ground_fareComCity
+  steps:
+  - intent: ground_fare
+    entities:
+    - city_name: ''
+  - action: action_qa
+
+- story: distance
+  steps:
+  - intent: distance
+    entities:
+    - fromloc.city_name: ''
+    - toloc.city_name: ''
+  - action: action_qa
+
+- story: airline
+  steps:
+  - intent: airline
+    entities:
+    - fromloc.city_name: ''
+    - toloc.city_name: ''
+  - action: action_qa
+
+- story: airport
+  steps:
+  - intent: airport
+    entities:
+    - city_name: ''
+  - action: action_qa
+
+- story: ground_serviceComCity
+  steps:
+  - intent: ground_service
+    entities:
+    - city_name: ''
+  - action: action_qa
+
+- story: ground_serviceComFromLoc
+  steps:
+  - intent: ground_service
+    entities:
+    - fromloc.city_name: ''
+  - action: action_qa
+
+- story: aircraft
+  steps:
+  - intent: aircraft
+    entities:
+    - fromloc.city_name: ''
+    - toloc.city_name: ''
+  - action: action_qa
+
+

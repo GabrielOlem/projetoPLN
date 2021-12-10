@@ -101,6 +101,7 @@ entities:
 - today_relative
 - arrive_date.month_name
 - date
+- city
 slots:
   airline_name:
     type: rasa.shared.core.slots.TextSlot
@@ -343,10 +344,10 @@ responses:
   - text: Where are you going?
   - text: Where are you traveling to?
   - text: What is your destination?
-  utter_ask_flight_depart_date.day_number:
+  utter_ask_flight_form_depart_date.day_number:
   - text: When are you flying?
   - text: What is your departure day?
-  utter_ask_flight_depart_date.month_name:
+  utter_ask_flight_form_depart_date.month_name:
   - text: What is your depart month?
 actions:
 - action_api_test
@@ -354,16 +355,16 @@ actions:
 forms:
   flight_form:
     required_slots:
-      depart_date.day_number:
-      - entity: depart_date.day_number
-        type: from_entity
-      depart_date.month_name:
-      - entity: depart_date.month_name
-        type: from_entity
       fromloc.city_name:
       - entity: fromloc.city_name
         type: from_entity
       toloc.city_name:
       - entity: toloc.city_name
+        type: from_entity
+      depart_date.day_number:
+      - entity: depart_date.day_number
+        type: from_entity
+      depart_date.month_name:
+      - entity: depart_date.month_name
         type: from_entity
 e2e_actions: []

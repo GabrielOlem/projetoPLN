@@ -12,6 +12,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+from datetime import datetime
+
 import requests
 import json
 
@@ -80,6 +82,53 @@ resposta = {
     'boston+san_francisco':['Airbus','Concorde','Military Aircraft','Multi-role Combat']
     },
 }
+
+meses = {'january': '01',
+        'february': '02',
+        'march': '03',
+        'april': '04',
+        'may': '05',
+        'june': '06',
+        'july': '07',
+        'august': '08',
+        'september': '09',
+        'october': '10',
+        'november': '11',
+        'december': '12'
+}
+
+dias = {'first': '01',
+        'second': '02',
+        'third': '03',
+        'forth': '04',
+        'fifth': '05',
+        'sixth': '06',
+        'seventh': '07',
+        'eighth': '08',
+        'nineth': '09',
+        'tenth': '10', 
+        'eleventh': '11',
+        'twelfth': '12',
+        'thirteenth': '13',
+        'fourteenth': '14',
+        'fifteenth': '15',
+        'sixteenth': '16',
+        'seventeenth': '17',
+        'eighteenth': '18',
+        'nineteenth': '19',
+        'twentieth': '20',
+        'twenty-first': '21',
+        'twenty-second': '22',
+        'twenty-third': '23',
+        'twenty-fourth': '24',
+        'twenty-fifth': '25',
+        'twenty-sixth': '26',
+        'twenty-seventh': '27',
+        'twenty-eigth': '28',
+        'twenty-ninth': '29',
+        'thirtieth': '30',
+        'thirty-first': '31'
+}
 class ActionAPITest(Action):
 
     def name(self) -> Text:
@@ -123,10 +172,33 @@ class ActionAPITest(Action):
 
         toCity = json.loads(response2.text)['data'][0]['iataCode']
 
+        mes = meses[tracker.get_slot('depart_date.month_name')]
+        dia = dias[tracker.get_slot('depart_date.day_number').replace(' ', '-')]
+
+        hoje = datetime.today()
+
+        formats = ["%B %d", "%d %B", "%b %d", "%m/%d", "%m %d"]
+        dates = mes + ' ' + dia
+
+        date = dates.lower().replace("rd", "").replace("nd", "").replace("st", "")
+
+        for format in formats:
+            #print(datetime.strptime(date, format).strftime("%m/%d/%Y"))
+            try:
+                dataVoo = datetime.strptime(date, format).strftime("2021-%m-%d")
+            except ValueError:
+                pass
+        
+        sep = dataVoo.split('-')
+        dataVoo = datetime(int(sep[0]), int(sep[1]), int(sep[2]))
+
+        if dataVoo < hoje:
+            dataVoo = datetime(2022, int(sep[1]), int(sep[2]))
+        print(dataVoo.strftime('%Y-%m-%d'))
         params = (
             ('originLocationCode', str(fromCity)),
             ('destinationLocationCode', str(toCity)),
-            ('departureDate', '2021-12-15'),
+            ('departureDate', str(dataVoo.strftime('%Y-%m-%d'))),
             ('adults', 1),
         )
 
@@ -134,9 +206,11 @@ class ActionAPITest(Action):
 
         dicti2 = json.loads(response2.text)
 
-        print(str(dicti2['data'][0]['price']['total']))
-        dispatcher.utter_message(text='You can go for '+str(dicti2['data'][0]['price']['total']))
-
+        if dicti2['meta']['count'] != 0:
+            print(dicti2['data'][0])
+            dispatcher.utter_message(text='You can go for '+str(dicti2['data'][0]['price']['total']))
+        else:
+            dispatcher.utter_message(text='Sorry, we couldnt find flights from ' + str(tracker.get_slot('fromloc.city_name')) + ' to ' + str(tracker.get_slot('toloc.city_name')) + ' on ' + dataVoo.strftime("%Y-%m-%d"))
         return []
 
 
@@ -276,7 +350,7 @@ class ActionQA(Action):
         elif intent == "ground_fare":
             city = tracker.get_slot('city_name')
             airportName = tracker.get_slot('fromloc.airport_name')
-
+            airportName = tracker.get_slot('airport_name')
             message = ""
 
             if city != None:
@@ -288,10 +362,11 @@ class ActionQA(Action):
                     message = f"Sorry we dont have informations about the ground fares at {city.upper()}"
 
             else:
+                print(airportName)
                 key = airportName.replace(' ', '_')
                 if key in resposta[intent].keys():
                     vec = resposta[intent][key]
-                    message = f"The ground fares are {vec[0]}$ for a Limusine and {vec[1]} for a normal car at {airportName.upper()}"
+                    message = f"The ground fares are {vec[0]}$ for a Limusine and {vec[1]}$ for a normal car at {airportName.upper()}"
                 else:
                     message = f"Sorry we dont have informations about the ground fares at {airportName.upper()}"
 
