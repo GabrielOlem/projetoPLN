@@ -209,8 +209,17 @@ class ActionAPITest(Action):
         dicti2 = json.loads(response2.text)
 
         if dicti2['meta']['count'] != 0:
-            print(dicti2['data'][0])
-            dispatcher.utter_message(text='You can go for '+str(dicti2['data'][0]['price']['total']))
+            
+            
+            params = (
+                ('airlineCodes', str(dicti2['data'][0]['validatingAirlineCodes'][0])),
+            )
+            
+
+            r3 = requests.get('https://test.api.amadeus.com/v1/reference-data/airlines', headers=headers, params=params)
+            d3 = json.loads(r3.text)
+            dispatcher.utter_message(text='We could find ' + str(dicti2['meta']['count']) + ' flights from ' + str(tracker.get_slot('fromloc.city_name')) + ' to ' + str(tracker.get_slot('toloc.city_name')) + ' on ' + dataVoo.strftime("%Y-%m-%d") + '. The cheapest one available is ' + str(dicti2['data'][0]['price']['total']) + ' euros on ' + str(d3['data'][0]['commonName']))
+            
         else:
             dispatcher.utter_message(text='Sorry, we couldnt find flights from ' + str(tracker.get_slot('fromloc.city_name')) + ' to ' + str(tracker.get_slot('toloc.city_name')) + ' on ' + dataVoo.strftime("%Y-%m-%d"))
         return []

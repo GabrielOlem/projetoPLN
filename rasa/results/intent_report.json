@@ -1,122 +1,130 @@
 {
-  "restriction": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+  "city": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
     "support": 5,
-    "confused_with": {}
+    "confused_with": {
+      "flight": 4,
+      "deny": 1
+    }
   },
-  "deny": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
+  "flight": {
+    "precision": 0.9118541033434651,
+    "recall": 0.9787928221859706,
+    "f1-score": 0.944138473642801,
+    "support": 613,
+    "confused_with": {
+      "airline": 6,
+      "quantity": 4
+    }
+  },
+  "quantity": {
+    "precision": 0.16666666666666666,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.2222222222222222,
+    "support": 3,
+    "confused_with": {
+      "aircraft": 2
+    }
+  },
+  "airfare": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 48,
+    "confused_with": {
+      "flight": 45,
+      "aircraft": 3
+    }
   },
   "airline": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 148,
-    "confused_with": {}
-  },
-  "greet": {
-    "precision": 1.0,
-    "recall": 0.9285714285714286,
-    "f1-score": 0.962962962962963,
-    "support": 14,
+    "precision": 0.7941176470588235,
+    "recall": 0.9642857142857143,
+    "f1-score": 0.8709677419354839,
+    "support": 28,
     "confused_with": {
-      "goodbye": 1
+      "flight": 1
+    }
+  },
+  "meal": {
+    "precision": 1.0,
+    "recall": 0.16666666666666666,
+    "f1-score": 0.2857142857142857,
+    "support": 6,
+    "confused_with": {
+      "flight": 5
+    }
+  },
+  "capacity": {
+    "precision": 1.0,
+    "recall": 0.7142857142857143,
+    "f1-score": 0.8333333333333333,
+    "support": 21,
+    "confused_with": {
+      "aircraft": 5,
+      "flight": 1
+    }
+  },
+  "ground_fare": {
+    "precision": 0.8333333333333334,
+    "recall": 0.7142857142857143,
+    "f1-score": 0.7692307692307692,
+    "support": 7,
+    "confused_with": {
+      "ground_service": 1,
+      "flight": 1
     }
   },
   "distance": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 20,
-    "confused_with": {}
-  },
-  "aircraft": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 79,
-    "confused_with": {}
-  },
-  "quantity": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 49,
-    "confused_with": {}
-  },
-  "capacity": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 16,
-    "confused_with": {}
-  },
-  "affirm": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 6,
-    "confused_with": {}
-  },
-  "goodbye": {
-    "precision": 0.9166666666666666,
-    "recall": 1.0,
-    "f1-score": 0.9565217391304348,
-    "support": 11,
-    "confused_with": {}
-  },
-  "ground_service": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 236,
-    "confused_with": {}
-  },
-  "ground_fare": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 17,
-    "confused_with": {}
-  },
-  "flight": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1433,
-    "confused_with": {}
-  },
-  "meal": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
+    "support": 10,
     "confused_with": {}
   },
   "airport": {
     "precision": 1.0,
+    "recall": 0.7692307692307693,
+    "f1-score": 0.8695652173913044,
+    "support": 13,
+    "confused_with": {
+      "ground_fare": 1,
+      "flight": 1
+    }
+  },
+  "ground_service": {
+    "precision": 0.972972972972973,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 19,
+    "f1-score": 0.9863013698630138,
+    "support": 36,
     "confused_with": {}
   },
-  "accuracy": 0.9995162070633768,
+  "aircraft": {
+    "precision": 0.35,
+    "recall": 0.875,
+    "f1-score": 0.4999999999999999,
+    "support": 8,
+    "confused_with": {
+      "quantity": 1
+    }
+  },
+  "micro avg": {
+    "precision": 0.8933500627352572,
+    "recall": 0.8922305764411027,
+    "f1-score": 0.8927899686520376,
+    "support": 798
+  },
   "macro avg": {
-    "precision": 0.9944444444444444,
-    "recall": 0.9952380952380953,
-    "f1-score": 0.9946323134728932,
-    "support": 2067
+    "precision": 0.6690787269479385,
+    "recall": 0.6263233945228236,
+    "f1-score": 0.6067894511111012,
+    "support": 798
   },
   "weighted avg": {
-    "precision": 0.9995565231414286,
-    "recall": 0.9995162070633768,
-    "f1-score": 0.9995177651726735,
-    "support": 2067
+    "precision": 0.8463185712124707,
+    "recall": 0.8922305764411027,
+    "f1-score": 0.8636851453934258,
+    "support": 798
   }
 }

@@ -66,6 +66,7 @@ apiSecret = 'KOZpmXWD7OOMwmgx'
 
 import requests
 import json
+import pprint
 
 headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -112,4 +113,13 @@ response2 = requests.get('https://test.api.amadeus.com/v2/shopping/flight-offers
 
 dicti2 = json.loads(response2.text)
 
-print(str(dicti2['data'][0]['price']['total']))
+pprint.pprint(dicti2['data'][0])
+
+params = (
+    ('airlineCodes', 'BA'),
+)
+
+print(params)
+r3 = requests.get('https://test.api.amadeus.com/v1/reference-data/airlines', headers=headers, params=params)
+d3 = json.loads(r3.text)
+print(d3)

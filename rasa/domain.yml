@@ -13,8 +13,6 @@ intents:
     use_entities: true
 - deny:
     use_entities: true
-- flight+airfare:
-    use_entities: true
 - city:
     use_entities: true
 - airline:
@@ -23,41 +21,23 @@ intents:
     use_entities: true
 - restriction:
     use_entities: true
-- cheapest:
-    use_entities: true
 - airport:
     use_entities: true
 - flight:
     use_entities: true
-- abbreviation:
-    use_entities: true
 - meal:
-    use_entities: true
-- aircraft+flight+flight_no:
-    use_entities: true
-- flight_no:
-    use_entities: true
-- flight_time:
     use_entities: true
 - quantity:
     use_entities: true
-- ground_service+ground_fare:
-    use_entities: true
 - airfare:
     use_entities: true
-- airline+flight_no:
-    use_entities: true
 - distance:
-    use_entities: true
-- airfare+flight_time:
     use_entities: true
 - capacity:
     use_entities: true
 - aircraft:
     use_entities: true
 - ground_fare:
-    use_entities: true
-- informDate:
     use_entities: true
 entities:
 - airline_name
