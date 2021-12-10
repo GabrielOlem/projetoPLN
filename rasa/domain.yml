@@ -84,7 +84,6 @@ entities:
 - round_trip
 - fromloc.city_name
 - fromloc.state_code
-- airport_name
 - arrive_time.time
 - depart_date.month_name
 - stoploc.city_name
@@ -102,6 +101,7 @@ entities:
 - arrive_date.month_name
 - date
 - city
+- airport_name
 slots:
   airline_name:
     type: rasa.shared.core.slots.TextSlot
@@ -219,11 +219,6 @@ slots:
     auto_fill: true
     influence_conversation: false
   fromloc.state_code:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
-    influence_conversation: false
-  airport_name:
     type: rasa.shared.core.slots.TextSlot
     initial_value: null
     auto_fill: true
@@ -355,16 +350,16 @@ actions:
 forms:
   flight_form:
     required_slots:
-      fromloc.city_name:
-      - entity: fromloc.city_name
-        type: from_entity
-      toloc.city_name:
-      - entity: toloc.city_name
-        type: from_entity
       depart_date.day_number:
       - entity: depart_date.day_number
         type: from_entity
       depart_date.month_name:
       - entity: depart_date.month_name
+        type: from_entity
+      fromloc.city_name:
+      - entity: fromloc.city_name
+        type: from_entity
+      toloc.city_name:
+      - entity: toloc.city_name
         type: from_entity
 e2e_actions: []
